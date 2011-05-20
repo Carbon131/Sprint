@@ -1,4 +1,8 @@
 name: Sprint
 main: com.Carbon131.Sprint.Sprint
-version: 0.9
+version: 1.1
 author: Carbon131
+commands:
+  sprint:
+    description: Modify sprint configuration settings.
+    usage: /<command>
