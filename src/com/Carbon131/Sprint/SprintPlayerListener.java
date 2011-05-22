@@ -27,7 +27,7 @@ public class SprintPlayerListener extends PlayerListener
  	 	 				{ 	  
  	 	 					if (Sprint.players.get(player) != null)
  	 	 					{
- 	 	 						if (Sprint.requirescommandenabled == true && (Sprint.status.get(player) != null && Sprint.status.get(player).booleanValue() == true))
+ 	 	 						if ((Sprint.requirescommandenabled == true || Sprint.helditemenabled == true) && (Sprint.status.get(player) != null && Sprint.status.get(player).booleanValue() == true))
  	 	 						{
 	 	 	 						double currentenergy = Sprint.players.get(player).doubleValue();
 	 	 	 						double energy = minusenergy(currentenergy);
@@ -54,7 +54,7 @@ public class SprintPlayerListener extends PlayerListener
 	 	                				player.sendMessage("§4Stamina: 0% - You Must Rest!");
 	 	 	 						} 	  
  	 	 						}
- 	 	 						else if (Sprint.requirescommandenabled == false)
+ 	 	 						else if (Sprint.requirescommandenabled == false && Sprint.helditemenabled == false)
  	 	 						{
 	 	 	 						double currentenergy = Sprint.players.get(player).doubleValue();
 	 	 	 						double energy = minusenergy(currentenergy);
@@ -96,7 +96,7 @@ public class SprintPlayerListener extends PlayerListener
  	                {
 	                	if (Sprint.players.get(player) != null)
  	                	{
-	 	 					if (Sprint.requirescommandenabled == true && (Sprint.status.get(player) != null && Sprint.status.get(player).booleanValue() == true))
+	 	 					if ((Sprint.requirescommandenabled == true || Sprint.helditemenabled == true) && (Sprint.status.get(player) != null && Sprint.status.get(player).booleanValue() == true))
  	 	 					{
 	 	 	 					double currentenergy = Sprint.players.get(player).doubleValue();
 	 	 	 					double energy = minusenergy(currentenergy);
@@ -123,7 +123,7 @@ public class SprintPlayerListener extends PlayerListener
 	 	                			player.sendMessage("§4Stamina: 0% - You Must Rest!");
 	 	 	 					} 	  
  	 	 					}
-	 	 					else if (Sprint.requirescommandenabled == false)
+	 	 					else if (Sprint.requirescommandenabled == false && Sprint.helditemenabled == false)
  	 	 					{
 	 	 	 					double currentenergy = Sprint.players.get(player).doubleValue();
 	 	 	 					double energy = minusenergy(currentenergy);
@@ -205,6 +205,7 @@ public class SprintPlayerListener extends PlayerListener
 	 	 				else
 	 	 				{
 	 	 					Sprint.status.put(player, true);
+	 	 					player.sendMessage("Sprinting enabled.");
 	 	 				}
  	 				}
  	 			}

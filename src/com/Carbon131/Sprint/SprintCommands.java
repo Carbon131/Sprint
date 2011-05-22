@@ -54,19 +54,42 @@ public class SprintCommands implements CommandExecutor
     	    		{
 	    				if (args[0].equalsIgnoreCase("admin"))
 	    				{
-	    					sender.sendMessage("----------------§6[ §eSprint Administration §6]§f----------------");
-	    					sender.sendMessage("/sprint speed §b<amount> §f: §3Change sprint speed.");
-	    					sender.sendMessage("/sprint energygainedpersecond §b<amount> §f: §3Change energy gained per second.");
-	    					sender.sendMessage("/sprint energylostpersecond §b<amount> §f: §3Change energy lost per second.");
-	    					sender.sendMessage("/sprint highjump §b<enable|disable> §f: §3Enable/disable sprint highjump.");
-	    					sender.sendMessage("/sprint requiresitem §b<enable|disable> §f: §3Enable/disable require item to wear.");
-	    					sender.sendMessage("/sprint requirescommand §b<enable|disable> §f: §3Enable/disable require command to enable/disable sprinting.");
-	    					sender.sendMessage("/sprint helditem §b<enable|disable> §f: §3Enable/disable being able to enable/disable sprint using an item.");
-	    					sender.sendMessage("/sprint helditemid §b<id> §f: §3Change the item that is used to enable/disable sprinting.");
-	    					sender.sendMessage("/sprint itemid §b<id> §f: §3Change the required item to be worn.");
-	    					sender.sendMessage("/sprint messagesinterval §b<seconds> §f: §3Change the interval between messages sent while sprinting.");
-	    					sender.sendMessage("/sprint energygainedcolor §b<color> §f: §3Change the color of the energy gained message.");
-	    					sender.sendMessage("/sprint energylostcolor §b<color> §f: §3Change the color of the energy lost message.");
+	    					if (args.length < 2)
+	    					{
+		    					sender.sendMessage("-----------§6[ §eSprint Administration (Page 1/2) §6]§f-----------");
+		    					sender.sendMessage("/sprint speed §b<amount> §f: §3Change sprint speed.");
+		    					sender.sendMessage("/sprint energygainedpersecond §b<amount> §f: §3Change energy gained per second.");
+		    					sender.sendMessage("/sprint energylostpersecond §b<amount> §f: §3Change energy lost per second.");
+		    					sender.sendMessage("/sprint highjump §b<enable|disable> §f: §3Enable/disable sprint highjump.");
+		    					sender.sendMessage("/sprint requiresitem §b<enable|disable> §f: §3Enable/disable require item to wear.");
+		    					sender.sendMessage("/sprint requirescommand §b<enable|disable> §f: §3Enable/disable require command to enable/disable sprinting.");
+			    	        	return true;
+	    					}
+	    					if (args.length > 0)
+	    					{
+	    	    				if (args[1].equals("1"))
+	    	    				{
+			    					sender.sendMessage("-----------§6[ §eSprint Administration (Page 1/2) §6]§f-----------");
+			    					sender.sendMessage("/sprint speed §b<amount> §f: §3Change sprint speed.");
+			    					sender.sendMessage("/sprint energygainedpersecond §b<amount> §f: §3Change energy gained per second.");
+			    					sender.sendMessage("/sprint energylostpersecond §b<amount> §f: §3Change energy lost per second.");
+			    					sender.sendMessage("/sprint highjump §b<enable|disable> §f: §3Enable/disable sprint highjump.");
+			    					sender.sendMessage("/sprint requiresitem §b<enable|disable> §f: §3Enable/disable require item to wear.");
+			    					sender.sendMessage("/sprint requirescommand §b<enable|disable> §f: §3Enable/disable require command to enable/disable sprinting.");
+				    	        	return true;
+	    	    				}
+			    				else if (args[1].equals("2"))
+		    	    			{
+			    					sender.sendMessage("-----------§6[ §eSprint Administration (Page 2/2) §6]§f-----------");
+			    					sender.sendMessage("/sprint helditem §b<enable|disable> §f: §3Enable/disable being able to enable/disable sprint using an item.");
+			    					sender.sendMessage("/sprint helditemid §b<id> §f: §3Change the item that is used to enable/disable sprinting.");
+			    					sender.sendMessage("/sprint itemid §b<id> §f: §3Change the required item to be worn.");
+			    					sender.sendMessage("/sprint messagesinterval §b<seconds> §f: §3Change the interval between messages sent while sprinting.");
+			    					sender.sendMessage("/sprint energygainedcolor §b<color> §f: §3Change the color of the energy gained message.");
+			    					sender.sendMessage("/sprint energylostcolor §b<color> §f: §3Change the color of the energy lost message.");
+				    	        	return true;
+		    	    			}
+	    					}
 	    				}
 	    				if (args[0].equalsIgnoreCase("speed"))
 	    				{
