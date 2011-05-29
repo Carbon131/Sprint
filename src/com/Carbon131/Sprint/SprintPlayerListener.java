@@ -44,7 +44,7 @@ public class SprintPlayerListener extends PlayerListener
 	 	 	 								Vector dir = player.getLocation().getDirection().multiply(Sprint.speed).setY(0);
 	 	 	 								player.setVelocity(dir);
 	 	 	 							}
-	 	 	 							if (energy%Sprint.messagesinterval == 0)
+	 	 	 							if (energy%Sprint.messagesinterval == 0 && Sprint.energylostpersecond != 0)
 	 	 	 							{
 	 	 	 								player.sendMessage("§"+ Sprint.energylostcolor + "Stamina: " + energy + "%");
 	 	 	 							}
@@ -71,7 +71,7 @@ public class SprintPlayerListener extends PlayerListener
 	 	 	 								Vector dir = player.getLocation().getDirection().multiply(Sprint.speed).setY(0);
 	 	 	 								player.setVelocity(dir);
 	 	 	 							}
-	 	 	 							if (energy%Sprint.messagesinterval == 0)
+	 	 	 							if (energy%Sprint.messagesinterval == 0 && Sprint.energylostpersecond != 0)
 	 	 	 							{
 	 	 	 								player.sendMessage("§"+ Sprint.energylostcolor + "Stamina: " + energy + "%");
 	 	 	 							}
@@ -113,7 +113,7 @@ public class SprintPlayerListener extends PlayerListener
 	 	 	 							Vector dir = player.getLocation().getDirection().multiply(Sprint.speed).setY(0);
 	 	 	 							player.setVelocity(dir);
 	 	 	 						}
-	 	 	 						if (energy%Sprint.messagesinterval == 0)
+	 	 	 						if (energy%Sprint.messagesinterval == 0 && Sprint.energylostpersecond != 0)
 	 	 	 						{
 	 	 	 							player.sendMessage("§"+ Sprint.energylostcolor + "Stamina: " + energy + "%");
 	 	 	 						}
@@ -140,7 +140,7 @@ public class SprintPlayerListener extends PlayerListener
 	 	 	 							Vector dir = player.getLocation().getDirection().multiply(Sprint.speed).setY(0);
 	 	 	 							player.setVelocity(dir);
 	 	 	 						}
-	 	 	 						if (energy%Sprint.messagesinterval == 0)
+	 	 	 						if (energy%Sprint.messagesinterval == 0 && Sprint.energylostpersecond != 0)
 	 	 	 						{
 	 	 	 							player.sendMessage("§"+ Sprint.energylostcolor + "Stamina: " + energy + "%");
 	 	 	 						}
@@ -166,11 +166,11 @@ public class SprintPlayerListener extends PlayerListener
  				double currentenergy = Sprint.players.get(player).doubleValue();
  				double energy = addenergy(currentenergy);
  				Sprint.players.put(player, new Double(energy));
- 				if ((Math.floor((energy)*10)/10)%Sprint.messagesinterval == 0 && (Math.floor((energy)*10)/10) != 100)
+ 				if ((Math.floor((energy)*10)/10)%Sprint.messagesinterval == 0 && (Math.floor((energy)*10)/10) != 100  && Sprint.energylostpersecond != 0)
  				{
  					player.sendMessage("§" + Sprint.energygainedcolor + "Stamina: " + Math.floor(energy) + "%");
  				}
- 				else if ((Math.floor((energy)*10)/10) == 99.9)
+ 				else if ((Math.floor((energy)*10)/10) == 99.9  && Sprint.energylostpersecond != 0)
  				{
  					player.sendMessage("§" + Sprint.energygainedcolor + "Stamina: 100%");
  				}
